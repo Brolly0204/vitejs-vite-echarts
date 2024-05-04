@@ -19,7 +19,7 @@ onMounted(() => {
     grid: {
       left: '3%',
       right: '0',
-      bottom: '3%',
+      bottom: '5%',
       containLabel: true,
     },
     tooltip: {
@@ -27,6 +27,9 @@ onMounted(() => {
     },
     xAxis: [
       {
+        name: '寒冷地区',
+        nameLocation: 'middle',
+        nameGap: 26,
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         axisTick: { show: false, alignWithLabel: true },
@@ -71,12 +74,14 @@ onMounted(() => {
     grid: {
       left: '0',
       right: '0',
-      bottom: '3%',
+      bottom: '5%',
       containLabel: true,
     },
     xAxis: [
       {
-        boundaryGap: [20, 20],
+        name: '寒冷地区',
+        nameLocation: 'middle',
+        nameGap: 26,
         type: 'category',
         data: ['', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun', ''],
         axisTick: { show: false, alignWithLabel: true },
@@ -142,7 +147,7 @@ onMounted(() => {
     grid: {
       left: '0',
       right: '4%',
-      bottom: '3%',
+      bottom: '5%',
       containLabel: true,
     },
     tooltip: {
@@ -150,6 +155,9 @@ onMounted(() => {
     },
     xAxis: [
       {
+        name: '寒冷地区',
+        nameLocation: 'middle',
+        nameGap: 26,
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         axisTick: {
