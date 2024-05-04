@@ -43,6 +43,20 @@ onMounted(() => {
         type: 'bar',
         barWidth: '60%',
         data: [10, 52, 200, 334, 390, 330, 220],
+        markLine: {
+          symbol: "none",
+          label: {
+            position: 'insideStartTop',
+            fontSize: 14,
+            fontWeight: 'bold',
+          },
+          lineStyle: {
+            color: 'red'
+          },
+          data: [{
+            yAxis: 220
+          }],
+        }
       },
     ],
   });
@@ -97,7 +111,23 @@ onMounted(() => {
         name: 'Direct',
         type: 'bar',
         barWidth: '60%',
-        data: ['-', 10, 52, 100, 234, 320, 399, 120, '-'],
+        data: ['-', 10, 52, 100, 234, 320, 460, 120, '-'],
+        markLine: {
+          symbol: "none",
+          lineStyle: {
+            color: 'red',
+          },
+          data: [{
+            x: '10%',
+            yAxis: 120,
+          }],
+          label: {
+            fontSize: 14,
+            fontWeight: 'bold',
+            // color: 'red',
+            position: 'insideStartTop'
+          },
+        }
       },
     ],
   });
@@ -141,14 +171,37 @@ onMounted(() => {
         type: 'bar',
         barWidth: '60%',
         data: [10, 52, 200, 334, 390, 330, 220],
+        markLine: {
+          symbol: "none",
+          lineStyle: {
+            color: 'red'
+          },
+          data: [{
+            yAxis: 240
+          }],
+          label: {
+            position: 'insideStartTop',
+            fontSize: 14,
+            fontWeight: 'bold',
+          },
+        }
       },
     ],
   });
 });
 
+const computedYaxisMax = (chartList) => {
+  const maxList = chartList.map(chart => {
+    const { _extent } =  chart.getModel().getComponent('yAxis').axis.scale
+    const [yMin, yMax] = _extent
+    return yMax
+  })
+  return Math.max(...maxList)
+}
 const updateYaxisValue = () => {
-  const yMin = 0;
-  const yMax = 280;
+  let yMin = 0;
+  let yMax = computedYaxisMax([chartRef.value, secChartRef.value, thirChartRef.value]);
+  console.log('max',yMin, yMax)
 
   chartRef.value.setOption({
     yAxis: {
@@ -196,6 +249,7 @@ const count = ref(0);
 .bar-container {
   display: flex;
 }
+
 .bar {
   flex: 1;
   height: 80vh;

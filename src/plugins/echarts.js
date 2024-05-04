@@ -11,6 +11,7 @@ import {
   DataZoomComponent,
   DatasetComponent,
   TransformComponent,
+  MarkLineComponent,
 } from 'echarts/components';
 // 标签自动布局、全局过渡动画等特性
 import { LabelLayout, UniversalTransition } from 'echarts/features';
@@ -24,6 +25,7 @@ echarts.use([
   TitleComponent,
   TooltipComponent,
   GridComponent,
+  MarkLineComponent,
   DataZoomComponent,
   DatasetComponent,
   TransformComponent,
